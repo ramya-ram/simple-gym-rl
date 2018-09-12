@@ -28,7 +28,7 @@
 
 	```
 	cd run_q_learning
-	python run_game.py [name=(game-name),param1-name=(param1-value),param2-name=(param2-value),...] (save-directory-name)
+	python run_game.py [name=(game-name)] (save-directory-name)
 
 	e.g.
 	python run_game.py [name="MyCatcher-v0"] mycatcher
@@ -41,7 +41,7 @@
 
 	```
 	cd run_q_learning
-	python run_game.py [name=(game-name),param1-name=(param1-value),param2-name=(param2-value),...] (save-directory-name) (learned-Q-file)
+	python run_game.py [name=(game-name)] (save-directory-name) (learned-Q-file)
 
 	e.g.
 	python run_game.py [name="MyCatcher-v0"] mycatcher_learned mycatcher/Q.csv

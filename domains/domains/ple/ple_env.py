@@ -12,7 +12,7 @@ def process_state(state):
 class PLEEnv(gym.Env):
     metadata = {'render.modes': ['human', 'rgb_array']}
 
-    def __init__(self, prespecified_game=True, game_name='Catcher', display_screen=True, rgb_state=False):
+    def __init__(self, prespecified_game=True, game_name='MyCatcher', display_screen=True, rgb_state=False):
         # open up a game state to communicate with emulator
         import importlib
         if prespecified_game:
