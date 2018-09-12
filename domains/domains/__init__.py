@@ -1,6 +1,6 @@
 from gym.envs.registration import register
 
-for game in ['']:
+for game in ['MyCatcher']:
     nondeterministic = False
     register(
         id='{}-v0'.format(game),
