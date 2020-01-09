@@ -12,7 +12,8 @@ from itertools import product
 class AgentPaddle(Paddle):
     def __init__(self, speed, width, height, SCREEN_WIDTH, SCREEN_HEIGHT, feature_bins):
         super(AgentPaddle, self).__init__(speed, width, height, SCREEN_WIDTH, SCREEN_HEIGHT)
-        x = random.choice(feature_bins) # Choose randomly from one of the possible x locations
+        # Choose an initial paddle position randomly from one of the possible x locations
+        x = random.choice(feature_bins)
         self.rect.center = (x, SCREEN_HEIGHT - height - 3)
 
     def update(self, dx, dt):
@@ -34,6 +35,7 @@ class GoodFruit(Fruit):
 
     def update(self, dt):
         x, y = self.rect.center
+        # Update state but make sure position is discretized into one of the bins
         curr_y_bin = np.digitize(y, self.y_feature_bins)-1
         new_y_bin = curr_y_bin + self.speed
         if new_y_bin >= len(self.y_feature_bins):
@@ -43,7 +45,8 @@ class GoodFruit(Fruit):
         self.rect.center = (x, n_y)
 
     def reset(self, x_bins):
-        x = random.choice(x_bins) # Choose randomly from one of the possible values in x_bins
+        # Choose randomly from one of the possible values in x_bins
+        x = random.choice(x_bins)
         y = 0
         self.rect.center = (x, y)
 

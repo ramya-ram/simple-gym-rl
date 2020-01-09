@@ -9,10 +9,10 @@ import pdb
 
 """
 Usage:
-python run_game.py [name=<env name>,param1_name=<param1>,param2_name=<param2>...] <file directory to save results> <optional: learned Q-value file>
-This will train a tabular Q-learning agent on the provided environment (with given parameters) and save the results into the provided directory.
+python run_game.py <env name> <file directory to save results> <optional: learned Q-value file>
+This will train a tabular Q-learning agent on the provided environment and save the results into the given directory.
 If a learned Q-value file is provided, you can watch the agent play the game with the learned Q-value function.
-e.g. python run_game.py [name="TargetCatcher-v0",blindspot_region="250;300;350;400;450"] save_dir target_task_learnedQ/Q.csv
+e.g. python run_game.py "MyCatcher-v0" save_dir learned_Q/Q.csv
 """
 
 def run(env, agent, render, save_dir, num_episodes):
@@ -59,18 +59,8 @@ def run(env, agent, render, save_dir, num_episodes):
             plt.savefig(os.path.join(save_dir, "mean_rewards.png"))
 
 if __name__ == "__main__":
-    # Env name to train on (e.g., Catcher-v0) and additional parameters
-    env_info = sys.argv[1][1:-1].split(',')
-    env_params = {}
-    for s in env_info:
-        pair = s.split('=')
-        if pair[0] == "name":
-            env_name = pair[1]
-        else:
-            env_params[pair[0]] = pair[1]
-    env = gym.make(env_name)
-    if hasattr(env.env, "game"):
-        env.env.game.params = env_params
+    # Env name to train on (e.g., MyCatcher-v0)
+    env = gym.make(sys.argv[1])
 
     # If a learned Q-value file is given, the game will be rendered, and the agent will play according to the learned Q-value function.
     if len(sys.argv) >= 4:

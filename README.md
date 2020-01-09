@@ -28,10 +28,10 @@
 
 	```
 	cd run_q_learning
-	python run_game.py [name=(game-name)] (save-directory-name)
+	python run_game.py (game-name) (save-directory-name)
 
 	e.g.
-	python run_game.py [name="MyCatcher-v0"] mycatcher
+	python run_game.py "MyCatcher-v0" mycatcher
 	```
 
 	The learned Q-values, mean reward learning curve, and other debug info (state counts, etc.) will be saved to the specified directory location.
@@ -41,8 +41,8 @@
 
 	```
 	cd run_q_learning
-	python run_game.py [name=(game-name)] (save-directory-name) (learned-Q-file)
+	python run_game.py (game-name) (save-directory-name) (learned-Q-file)
 
 	e.g.
-	python run_game.py [name="MyCatcher-v0"] mycatcher_learned mycatcher/Q.csv
+	python run_game.py "MyCatcher-v0" mycatcher_learned mycatcher/Q.csv
 	```
